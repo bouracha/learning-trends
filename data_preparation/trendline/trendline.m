@@ -1,16 +1,11 @@
 function [slope1, slope2] = trendline(i, n, data);
 
-data_quanta = quantum_standardisation(i, n, data);
-
-indices = [1:size(data_quanta(:,1))]';
+indices = [1:size(data(:,1))]';
 
 %==== Select Subsection to train for slope1 ====
 
-y = data_quanta;
+y = data;
 X = indices;
-
-%y = data(i-n:i);
-%X = indices(i-n:i);
 
 %==== Train ======
 
@@ -20,13 +15,10 @@ slope1 = theta1(2);
 
 %==== Select Subsection to tain for slope1 ====
 
-data_quanta2 = quantum_standardisation(i-1, n, data);
+last_indice = length(data);
 
-y = data_quanta2;
-X = indices;
-
-%y = data(i-n:i-1);
-%X = indices(i-n:i-1);
+y = data(1:(last_indice-1));
+X = indices(1:(last_indice-1));
 
 %==== Train ======
 

@@ -4,9 +4,9 @@ function [matrix_features] = feature_create(min_indice, max_indice, nums, data);
 matrix_features = [];
 for i = min_indice:max_indice
     features = [i, data(i)];
-    for n = nums
+    for n = nums      
         data_quanta = quantum_standardisation(i, n, data);
-        
+
         [s1, s2] = trendline(i, n, data_quanta);
         K = oscillator(i, n, data_quanta);
         firstdiff = diff1(i, n, data_quanta);

@@ -12,9 +12,9 @@ addpath('oscillators/');
 %===== Read in sinlge column EUR/GBP Oldest-Newest ====
 
 files.CHF_AUD = 'CHF_AUD';
-files.EUR_GBP = 'EUR_GBP';
-files.GBP_JPY = 'GBP_JPY';
-files.JPY_USD = 'JPY_USD';
+%files.EUR_GBP = 'EUR_GBP';
+%files.GBP_JPY = 'GBP_JPY';
+%files.JPY_USD = 'JPY_USD';
 
 %data = load('../data/preprocessed/EUR_GBP.txt');
 %data = load('data/JPY_USD.txt');
