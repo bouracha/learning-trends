@@ -32,7 +32,7 @@ min_indice = 30;
 %========== Define set of previous days over =======
 %========== over which trends will be calculated ===
 
-nums = [5];%,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+nums = [4,5,6];%,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
 %=== Evaluate Features ========================================
 

@@ -68,7 +68,7 @@ fprintf('n-k-fold J_train: %f +/- %f \n', nanmean(J_train), nanstd(J_train))
 fprintf('\n');
 
 fprintf('##############################################################\n');
-fprintf('# n-k-fold Train Accuracy: %f +/- %f #####\n', nanmean(accuracy), nanstd(accuracy))
+fprintf('# n-k-fold Test Accuracy: %f +/- %f #####\n', nanmean(accuracy), nanstd(accuracy))
 fprintf('##############################################################\n');
 
 fprintf('\n');
