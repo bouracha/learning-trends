@@ -1,4 +1,4 @@
-function [slope1, slope2] = trendline(i, n, data);
+function [slope1, slope2] = trendline(data);
 
 indices = [1:size(data(:,1))]';
 

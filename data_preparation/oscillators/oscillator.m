@@ -1,4 +1,4 @@
-function [K] = oscillator(i, n, data);
+function [K] = oscillator(data);
 
 %==== Select Subsection to train for slope1 ====
 
