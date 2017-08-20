@@ -12,13 +12,22 @@ addpath('train/mapFeatures/');
 addpath('accuracy/');
 addpath('sigmoid/');
 addpath('k_fold/');
+addpath('plots/');
 
 fprintf('\n ###################### \n');
 
 data = load('../data/processed/CHF_AUD.csv');
 
 feature_columns = [2:size(data, 2)];
-fprintf('Number of FEATURES: %f\n', size(data, 2))
+
+fprintf('Number of FEATURES: %f\n', size(data, 2)-1)
+
+%=== Conduct Principle Component Analysis ============
+
+number_of_dimensions = 2;
+[data, feature_columns] = PCA(data, feature_columns, number_of_dimensions);
+
+%======================================================
 
 factor = 1.0;
 [training_data, CV_data] = splitRandom10(data, factor);

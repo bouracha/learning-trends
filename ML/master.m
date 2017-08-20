@@ -48,7 +48,7 @@ negative_precision= true_negatives/(true_negatives+false_negatives) * 100;
 
 negative_recall = true_negatives/(true_negatives+false_positives) * 100;
 
-
+%plotDecisionBoundary(theta, X_norm_CV, y_CV)
 
 %fprintf('Train Accuracy: %f\n', accuracy)
 
