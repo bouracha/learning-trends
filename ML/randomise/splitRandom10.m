@@ -2,7 +2,7 @@ function [taining_m, CV_data]  = splitRandom10(X, factor)
 
 nRows = size(X,1); % number of total rows
 
-nCV = ceil(5*(nRows/10)); % number of samples in cross validate set
+nCV = ceil(3*(nRows/10)); % number of samples in cross validate set
 
 rndIDX = randperm(nRows);
 
