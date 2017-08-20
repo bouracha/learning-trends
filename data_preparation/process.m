@@ -6,15 +6,6 @@ file = strcat('../data/preprocessed/', filename, '.txt');
 
 data = load(file);
 
-%==== Data is Standardised to remove all ==============
-%==== generalise trend features such as ===============
-%==== how much is a+large rise ========================
-
-data = standardisation(data);
-
-%=== Now a large change, relative to that commodity ===
-%=== will have the same value for each commodity ======
-
 %======= Indice of most recent date =========
 %======= Max Indice will exclude most recent 
 %======= day as the next day's eval is unknown
