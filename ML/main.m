@@ -16,16 +16,16 @@ addpath('plots/');
 
 fprintf('\n ###################### \n');
 
-data = load('../data/processed/CHF_AUD.csv');
+data = load('../data/processed/all.csv');
 
 feature_columns = [2:size(data, 2)];
 
-fprintf('Number of FEATURES: %f\n', size(data, 2)-1)
+fprintf('Number of FEATURES: %i\n', size(data, 2)-1)
 
 %=== Conduct Principle Component Analysis ============
 
-number_of_dimensions = 5;
-[data, feature_columns] = PCA(data, feature_columns, number_of_dimensions);
+number_of_dimensions = 10;
+%[data, feature_columns] = PCA(data, feature_columns, number_of_dimensions); 
 
 %======================================================
 
@@ -69,7 +69,7 @@ end
 
 fprintf('\n\n');
 
-fprintf('n-k: %f %f \n', n, k)
+fprintf('n-k: %i %i \n', n, k)
 
 fprintf('n-k-fold J_CV: %f +/- %f \n', nanmean(J_CV), nanstd(J_CV))
 fprintf('n-k-fold J_train: %f +/- %f \n', nanmean(J_train), nanstd(J_train))

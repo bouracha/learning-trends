@@ -1,4 +1,4 @@
-function [training_data] = process(filename);
+function [training_data, ratio_positive_negative] = process(filename);
 
 %===== Read in sinlge column Oldest-Newest ====
 
@@ -35,7 +35,7 @@ features = feature_create(min_indice, max_indice, nums, data);
 
 %==== Evaluate for Logistic Regression ====
 
-eval = loop_evaluation(min_indice, max_indice, data);
+[eval, ratio_positive_negative] = loop_evaluation(min_indice, max_indice, data);
 
 %==== return [i, data(i), evaluation] ==========
 %===============================================

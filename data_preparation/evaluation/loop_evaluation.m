@@ -1,4 +1,4 @@
-function [eval] = loop_evaluation(min_indice, max_indice, data);
+function [eval, ratio_positive_negative] = loop_evaluation(min_indice, max_indice, data);
 
 eval = [];
 num_of_positives = 0;
