@@ -1,7 +1,10 @@
-function [principle_data, feature_columns] = PCA(data, feature_columns, k)
+function [principle_train_data, principle_CV_data, feature_columns, correlations, variance_retained] = PCA(training_data, CV_data, feature_columns, k)
 
-y = data(:,1);
-X = data(:,feature_columns);
+y = training_data(:,1);
+X = training_data(:,feature_columns);
+
+y_CV = CV_data(:,1);
+X_CV = CV_data(:,feature_columns);
 
 m = length(y);
 
@@ -19,15 +22,15 @@ Ureduce = U(:, 1:k);
 
 [variance_retained, k] = calculate_variance(S, k)
 
-z = Ureduce'*X';
+z_train = Ureduce'*X';
+z_CV = Ureduce'*X_CV';
 
-principle_data = [y, z'];
+principle_train_data = [y, z_train'];
+principle_CV_data = [y_CV, z_CV'];
 
 feature_columns = [feature_columns(:, 1:k)];
 
-print_correlations(principle_data, feature_columns)
-
-fprintf('Dimentionality Reduction to: %i features\n', size(principle_data, 2)-1)
+[correlations] = calculate_correlations(principle_train_data, feature_columns)
 
 %===================================================================================
 
@@ -54,15 +57,16 @@ end
 
 end
 
-function print_correlations(data, feature_columns)
+function [correlations] = calculate_correlations(data, feature_columns)
 
+correlations = [];
 for i = feature_columns
 
     y = data(:,1);
     feature = data(:,i);
     correlation = corr(y, feature);
     
-    fprintf('Correlation feature y and PCA feature %i = %f\n', (i-1), correlation)
+    correlations = [correlations; correlation];
     
 end 
 
