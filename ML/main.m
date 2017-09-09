@@ -24,7 +24,7 @@ fprintf('Number of FEATURES: %i\n', size(data, 2)-1)
 
 %=== Conduct Principle Component Analysis ============
 
-number_of_dimensions = 5;
+number_of_dimensions = 9;
 fprintf('Dimentionality Reduction to: %i features\n', number_of_dimensions)
 %PCA(data, feature_columns, number_of_dimensions); 
 
@@ -61,10 +61,10 @@ factor = 1.0;
 %=========== Calculate Mean and SD of MULTIPLE K-FOLD CROSS VALIDATIONS ===
 %============ n-k fold validations =========================================
 
-n = 1;
+n = 5;
 for i = 1:n
 
-    k = 1;
+    k = 5;
     factor = 1;
     
     [J_CV(:, end+1), J_train(:, end+1), accuracy(:, end+1), positive_precision(:, end+1), positive_recall(:, end+1), negative_precision(:, end+1), negative_recall(:, end+1), correlations(:,end+1), variance_retained(:,end+1)] = k_fold(k, factor, feature_columns, data, number_of_dimensions);
@@ -91,14 +91,16 @@ fprintf('n-k-fold Positive Recall: %f +/- %f\n', nanmean(positive_recall), nanst
 fprintf('n-k-fold Negative Precision: %f +/- %f\n', nanmean(negative_precision), nanstd(negative_precision))
 fprintf('n-k-fold Negative Recall: %f +/- %f\n', nanmean(negative_recall), nanstd(negative_recall))
 
-correlations
-for i = 1:4
-fprintf('n-k-fold PCA Correlations: %f +/- %f\n', correlations(:,i), nanstd(correlations(:,i)))
-end
+corr_mean = mean(correlations');
+corr_error = std(correlations');
+
+fprintf('\n');
+fprintf('n-k-fold PCA Correlations: %f +/- %f\n', corr_mean, corr_error)
+
+fprintf('\n');
 fprintf('n-k-fold PCA Variance Retained: %f +/- %f\n', nanmean(variance_retained), nanstd(variance_retained))
 
-%%===========================================================================
-
+%=============================================================================================================
 %
 %
 %

@@ -21,7 +21,9 @@ mean_positive_recall = nanmean(positive_recall);
 mean_negative_precision = nanmean(negative_precision);
 mean_negative_recall = nanmean(negative_recall);
 
-mean_correlation = correlations;
+correlations = 1;
+variance_retained = 1;
+mean_correlation = mean(correlations');
 mean_variance_retained = mean(variance_retained);
 
 end

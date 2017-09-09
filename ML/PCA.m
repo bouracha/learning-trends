@@ -12,6 +12,8 @@ m = length(y);
 
 [X, mu, sigma] = PCA_featureNormalize(X);
 
+X_CV = (X_CV .- mu)./sigma;
+
 %==============================================================================
 
 Sigma = (1/m)*X'*X;
@@ -20,7 +22,7 @@ Sigma = (1/m)*X'*X;
 
 Ureduce = U(:, 1:k);
 
-[variance_retained, k] = calculate_variance(S, k)
+[variance_retained, k] = calculate_variance(S, k);
 
 z_train = Ureduce'*X';
 z_CV = Ureduce'*X_CV';
@@ -30,7 +32,7 @@ principle_CV_data = [y_CV, z_CV'];
 
 feature_columns = [feature_columns(:, 1:k)];
 
-[correlations] = calculate_correlations(principle_train_data, feature_columns)
+[correlations] = calculate_correlations(principle_train_data, feature_columns);
 
 %===================================================================================
 

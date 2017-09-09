@@ -9,9 +9,13 @@ for i = feature_columns
 
     feature = data(:,i);
     correlation = corr(y, feature);
-    selected_features = [selected_features, feature];
     
-    fprintf('Correlation feature y and feature %i = %f\n', i, correlation)
+    fprintf('\nCorrelation y and feature %i = %f ', (i-1), correlation)
+    
+   % if (correlation > abs(0.01))
+        selected_features = [selected_features, feature];
+        %fprintf('Has been selected as a feature')
+    %end
     
 end     
 
