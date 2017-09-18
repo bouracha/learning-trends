@@ -4,7 +4,7 @@ for i = 1:k
     
     [training_data, CV_data] = splitRandom10(data, factor);
     
-    [training_data, CV_data, feature_columns, correlations(:,end+1), variance_retained(:,end+1)] = PCA(training_data, CV_data, feature_columns, number_of_dimensions); 
+    %[training_data, CV_data, feature_columns, correlations(:,end+1), variance_retained(:,end+1)] = PCA(training_data, CV_data, feature_columns, number_of_dimensions); 
     
     X_train = training_data(:, feature_columns); y = training_data(:, 1);
     X_CV = CV_data(:, feature_columns); y_CV = CV_data(:, 1);

@@ -61,10 +61,10 @@ factor = 1.0;
 %=========== Calculate Mean and SD of MULTIPLE K-FOLD CROSS VALIDATIONS ===
 %============ n-k fold validations =========================================
 
-n = 5;
+n = 1;
 for i = 1:n
 
-    k = 5;
+    k = 1;
     factor = 1;
     
     [J_CV(:, end+1), J_train(:, end+1), accuracy(:, end+1), positive_precision(:, end+1), positive_recall(:, end+1), negative_precision(:, end+1), negative_recall(:, end+1), correlations(:,end+1), variance_retained(:,end+1)] = k_fold(k, factor, feature_columns, data, number_of_dimensions);

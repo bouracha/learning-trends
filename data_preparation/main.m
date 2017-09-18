@@ -21,7 +21,7 @@ addpath('oscillators/');
 %files.EUR_CAD = 'EUR_CAD';
 %files.EUR_CHF = 'EUR_CHF';
 %files.EUR_GBP = 'EUR_GBP';
-%files.EUR_JPY = 'EUR_JPY';S
+%files.EUR_JPY = 'EUR_JPY';
 %files.EUR_USD = 'EUR_USD';
 %files.GBP_AUD = 'GBP_AUD';
 %files.GBP_CAD = 'GBP_CAD';
@@ -86,5 +86,21 @@ csvwrite('../data/processed/all_test.csv', concat_data);
 %csvwrite(concat_path, concat_data);
 
 %==================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

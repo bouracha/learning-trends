@@ -9,7 +9,7 @@ for i = min_indice:max_indice
 
         [s1, s2] = trendline(data_quanta);
         K = oscillator(data_quanta);
-        moving_average = mean(data_quanta);
+        %moving_average = mean(data_quanta);
         firstdiff = diff1(i, n, data_quanta);
         secondDiff = diff2(i, n, data_quanta);
         features = [features, s1, s2, K, firstdiff, secondDiff];
